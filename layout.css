@@ -1,0 +1,110 @@
+body {font: normal 14pt Arial;
+}
+input {font: normal 14pt Arial; margin-top: 10px;  margin-bottom: 1mm; 
+width: 400px;
+}
+div#res{
+    margin-top: 20px;
+ }
+ div#res2{
+    margin-top: 20px;
+ }
+ .resizedTextbox {width: 100px; height: 20px; padding: 1px
+ };
+ option {font: normal 14pt Arial; margin-top: 10px;  margin-bottom: 1mm; 
+width: 400px}
+.resultados1 {color:rgb(55, 17, 228); font-weight: bold;
+ }
+ .seletor select{padding: 0.2em;
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    background-color: rgb(193, 196, 194);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+   
+ .filtros {
+    color:rgb(56, 18, 224);background-color: rgb(235, 228, 212); font-weight: bold;
+ }
+
+ .filtros { padding: 0.2em;
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    background-color: rgb(252, 247, 240);
+   }
+ .filtros:hover { color: rgb(0, 0, 0); background-color: darkgray;
+  }
+ .resultados1{
+    color:rgb(182, 12, 111); font-weight: bold; background-clip: border-box;
+   }
+   
+   .ok{
+    color:rgb(30, 15, 236); font-weight: bold;
+
+   }
+   .nok{
+    color:rgb(240, 58, 12); font-weight: bold;
+   }
+   .botao {
+    display: inline-block;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1.1;
+    font-weight: normal;
+    font-family: sans-serif;
+    color: #000000;
+    font-size: 12px;
+    background-color: #DEDEDE;
+    background-image: -webkit-linear-gradient(top, #e1e1e1 0%, #f2f2f2 48%, #DEDEDE 49%, #DEDEDE 82%, #ececec 100%);
+    background-image: -moz-linear-gradient(top, #e1e1e1 0%, #f2f2f2 48%, #DEDEDE 49%, #DEDEDE 82%, #ececec 100%);
+    background-image: -o-linear-gradient(top, #e1e1e1 0%, #f2f2f2 48%, #DEDEDE 49%, #DEDEDE 82%, #ececec 100%);
+    background-image: linear-gradient(top, #e1e1e1 0%, #f2f2f2 48%, #DEDEDE 49%, #DEDEDE 82%, #ececec 100%);
+    border-color: hsl(0, 0%, 65%);
+    -webkit-box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    -webkit-text-shadow: 1px 1px 1px #ababab;
+    -moz-text-shadow: 1px 1px 1px #ababab;
+    -o-text-shadow: 1px 1px 1px #ababab;
+    text-shadow: 1px 1px 1px #ababab;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 12px 30px 12px 30px;
+    }
+
+    .botao strong {
+    letter-spacing: 1px;
+    font-size: 22px;
+    }
+
+    .botao:hover {
+    color: #141313;
+    background-color: #e6e6e6;
+    background-image: -webkit-linear-gradient(top, #e9e9e9 0%, #fafafa 48%, #e6e6e6 49%, #e6e6e6 82%, #f4f4f4 100%);
+    background-image: -moz-linear-gradient(top, #e9e9e9 0%, #fafafa 48%, #e6e6e6 49%, #e6e6e6 82%, #f4f4f4 100%);
+    background-image: -o-linear-gradient(top, #e9e9e9 0%, #fafafa 48%, #e6e6e6 49%, #e6e6e6 82%, #f4f4f4 100%);
+    background-image: linear-gradient(top, #e9e9e9 0%, #fafafa 48%, #e6e6e6 49%, #e6e6e6 82%, #f4f4f4 100%);
+    border-color: hsl(0, 0%, 64%);
+    -webkit-box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 0 1px 1px #fff, 0 0 1px 3px rgba(0, 0, 0, 0.15);
+    -webkit-text-shadow: 1px 1px 1px #b3b3b3;
+    -moz-text-shadow: 1px 1px 1px #b3b3b3;
+    -o-text-shadow: 1px 1px 1px #b3b3b3;
+    text-shadow: 1px 1px 1px #b3b3b3;
+    }
+
+    .botao:active {
+    color: #141313;
+    background-color: #d6d6d6;
+    background-image: -webkit-linear-gradient(top, #d1d1d1 0%, #DEDEDE 100%);
+    background-image: -moz-linear-gradient(top, #d1d1d1 0%, #DEDEDE 100%);
+    background-image: -o-linear-gradient(top, #d1d1d1 0%, #DEDEDE 100%);
+    background-image: linear-gradient(top, #d1d1d1 0%, #DEDEDE 100%);
+    padding: 13px 30px 11px 30px;
+    }

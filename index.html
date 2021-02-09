@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="layout.css" type="text/css" />
+    <title>Geração de Relatório</title>
+</head>
+<body>
+    <img src="logoLinx.png" alt="some text" width=100 height=60>
+ <h1>
+         Geração de XML do Relatório Customizado  
+</h1>
+ 
+ <h2>Query</h2>
+ <input type="textarea" class="filtros" name="txquery" placeholder="Cole a Query aqui" id="txquery"> </br>
+ <smal>Colocar a query no campo acima - Depois Clicar No Botão Abaixo</smal></br>
+ <input type="button" class="botao" value="Carregar Query" onclick="montar1()"></br>
+ <div id="resCarregou"></div>
+ <div id="query"></div>
+ 
+
+        <h2>Cabeçalho</h2>
+    <input type="varchar" name="txname" class="filtros" placeholder="Nome do Relatório" id="txname"><Strong></Strong> </br>
+    <div id="resNomeRelatorio"></div>
+    <!--<input type="varchar" name="txanamefile" Style="color:blue;background-color: rgb(235, 228, 212);"placeholder="Nome do Excel" id="txanamefile"> </br>-->
+    <!--<input type="varchar" name="txcategoria" Style="color:blue;background-color: rgb(235, 228, 212);"placeholder="Categoria" id="txcategoria"> </br>-->
+    <h3>Tipo de Relatório</h3>
+    <div class="seletor">
+    <select type="varchar" class="selecao" name="txcategoria" id="txcategoria" >
+        <option value="Outros">Outros</option>
+        <option value="Clientes">Clientes</option>
+        <option value="Produtos">Produtos</option>
+        <option value="Pedidos">Pedidos</option>
+        <option value="Estoque">Estoque</option>
+    </div>
+    </select>  
+         
+
+        <h2>Filtros</h2>  
+     <label>Filtros Prontos - Multipla Escolha </label> </br></br>
+       <fieldset>
+            <legend>Escolha Filtros Prontos</legend>
+            <small>É necessário que os campos existam na query - obrigatoriamente </small>
+            <div>
+                <input type = "checkbox" id = "filtrofixo1" name = "data" valor = "filtrofixo1">
+                <label for = "filtrofixo1"> Filtro por Data: </label><label>Necessário o campo: <strong>CreatedDate</strong></label>
+            </div>
+            <div>
+                <input type = "checkbox" id = "filtrofixo2" name = "status" valor = "filtrofixo2">
+                <label for = "filtrofixo2"> Status de Pedido: </label><label>Necessário o campo: <strong>OrderStatusId</strong></label>
+            </div>
+            <div>
+                <input type = "checkbox" id = "filtrofixo3" name = "canal" valor = "filtrofixo3">
+                <label for = "filtrofixo3"> Filtro por Canal: </label><label>Necessário o campo: <strong>WebsiteID</strong></label>
+            </div>
+            <div>
+                <input type = "checkbox" id = "filtrofixo4" name = "deposito" valor = "filtrofixo4">
+                <label for = "filtrofixo4"> Filtro por Depósito: </label><label>Necessário o campo: <strong>WarehouseID</strong></label>
+            </div>
+            <div>
+                <input type = "checkbox" id = "filtrofixo5" name = "marcas" valor = "filtrofixo5">
+                <label for = "filtrofixo5"> Filtro por Marcas: </label><label>Necessário o campo: <strong>BrandID</strong></label>
+            </div>
+
+            <!--  Filtro por partes - Adiconar em um segundo momento - É preciso manipular a query
+            <div>
+                <input type = "checkbox" id = "filtrofixo6" name = "partes" valor = "filtrofixo6">
+                <label for = "filtrofixo6"> Filtro p/ Dividir em Partes </label><label>Necessário um campo tipo <strong>INT</strong> ou Único:<strong> Partes</strong></label>
+            </div>
+            <div>
+                <label> Colocar aqui o campo tipo Int para fazer o relatório</label><label> Partes</strong></label>
+                <input type="varchar" class="filtros" name="txfiltropartes" placeholder="Campo Int Da Query" id="txfiltropartes">             
+            </div>
+
+            -->
+
+      </fieldset>
+
+        
+</br>
+
+      <label>Filtros Manuais - De Texto </label>     
+      <small>Filtros por busca de texto, ou por cód</small>
+
+</br>
+
+    <input type="varchar" class="filtros" name="txfiltrotexto1" placeholder="Campo Query" id="txfiltrotexto1">
+    <input type="varchar" name="txfiltrotexto1print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto1print">  
+    
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro1" id="txtipofiltro1">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>   
+    </div>
+
+    
+    <input type="varchar" name="txfiltrotexto2" class="filtros" placeholder="Campo Query" id="txfiltrotexto2">
+    <input type="varchar" name="txfiltrotexto2print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto2print">
+    
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro2"  id="txtipofiltro2">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+   
+    
+    <input type="varchar" name="txfiltrotexto3" class="filtros" placeholder="Campo Query" id="txfiltrotexto3">
+    <input type="varchar" name="txfiltrotexto3print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto3print">
+    
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro3" id="txtipofiltro3">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+   
+   
+    <input type="varchar" name="txfiltrotexto4" class="filtros" placeholder="Campo Query" id="txfiltrotexto4">
+    <input type="varchar" name="txfiltrotexto4print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto4print"> 
+    
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro4"  id="txtipofiltro4">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+
+    <input type="varchar" name="txfiltrotexto5"class="filtros" placeholder="Campo Query" id="txfiltrotexto5">
+    <input type="varchar" name="txfiltrotexto5print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto5print">
+    
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro5" id="txtipofiltro5">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>   
+    </div>
+
+    
+    <input type="varchar" name="txfiltrotexto6" class="filtros" placeholder="Campo Query" id="txfiltrotexto6">
+    <input type="varchar" name="txfiltrotexto6print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto6print"> 
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro6"id="txtipofiltro6">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+
+    
+    <input type="varchar" name="txfiltrotexto7" class="filtros" placeholder="Campo Query" id="txfiltrotexto7">
+    <input type="varchar" name="txfiltrotexto7print" class="filtros"placeholder="Filtro na Tela" id="txfiltrotexto7print"> 
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro7" id="txtipofiltro7">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+
+    
+    <input type="varchar" name="txfiltrotexto8" class="filtros" placeholder="Campo Query" id="txfiltrotexto8">
+    <input type="varchar" name="txfiltrotexto8print" class="filtros" placeholder="Filtro na Tela" id="txfiltrotexto8print"> 
+    <div class="seletor">
+    <select type="varchar" name="txtipofiltro8" id="txtipofiltro8">
+        <option value="LIKE">LIKE</option>
+        <option value="=">=</option>
+    </select>  
+    </div>
+    </br>
+
+
+        <h2>Campos</h2>     
+        
+    <label for="c1">Campo 1:</label> <div class="resultados1" id="res1"></div>
+    <input type="varchar" name="txcoluna1print" class="filtros" placeholder="Campo na Tela" id="txcoluna1print">  </br>
+    <label for="c2">Campo 2:</label> <div class="resultados1" id="res2"></div>
+    <input type="varchar" name="txcoluna2print" class="filtros" placeholder="Campo na Tela" id="txcoluna2print">  </br>
+    <label for="c3">Campo 3:</label> <div class="resultados1" id="res3"></div>
+    <input type="varchar" name="txcoluna3print" class="filtros" placeholder="Campo na Tela" id="txcoluna3print">  </br>
+    <label for="c4">Campo 4:</label> <div class="resultados1" id="res4"></div>
+    <input type="varchar" name="txcoluna4print" class="filtros" placeholder="Campo na Tela" id="txcoluna4print">  </br>   
+    <label for="c5">Campo 5:</label> <div class="resultados1" id="res5"></div>
+    <input type="varchar" name="txcoluna5print" class="filtros" placeholder="Campo na Tela" id="txcoluna5print">  </br>    
+    <label for="c6">Campo 6:</label> <div class="resultados1" id="res6"></div>
+    <input type="varchar" name="txcoluna6print" class="filtros" placeholder="Campo na Tela" id="txcoluna6print">  </br>    
+    <label for="c7">Campo 7:</label> <div class="resultados1" id="res7"></div>
+    <input type="varchar" name="txcoluna7print" class="filtros" placeholder="Campo na Tela" id="txcoluna7print">  </br>    
+    <label for="c8">Campo 8:</label> <div class="resultados1" id="res8"></div>
+    <input type="varchar" name="txcoluna8print" class="filtros" placeholder="Campo na Tela" id="txcoluna8print">  </br>    
+    <label for="c9">Campo 9:</label> <div class="resultados1" id="res9"></div>
+    <input type="varchar" name="txcoluna9print" class="filtros" placeholder="Campo na Tela" id="txcoluna9print">  </br>    
+    <label for="c10">Campo 10:</label> <div class="resultados1" id="res10"></div>
+    <input type="varchar" name="txcoluna10print" class="filtros" placeholder="Campo na Tela" id="txcoluna10print">  </br>    
+    <label for="c11">Campo 11:</label> <div class="resultados1" id="res11"></div>
+    <input type="varchar" name="txcoluna11print" class="filtros" placeholder="Campo na Tela" id="txcoluna11print">  </br>    
+    <label for="c12">Campo 12:</label> <div class="resultados1" id="res12"></div>
+    <input type="varchar" name="txcoluna12print" class="filtros"placeholder="Campo na Tela" id="txcoluna12print">  </br>    
+    <label for="c13">Campo 13:</label> <div class="resultados1" id="res13"></div>
+    <input type="varchar" name="txcoluna13print" class="filtros"placeholder="Campo na Tela" id="txcoluna13print">  </br>    
+    <label for="c14">Campo 14:</label> <div class="resultados1" id="res14"></div>
+    <input type="varchar" name="txcoluna14print" class="filtros"placeholder="Campo na Tela" id="txcoluna14print">  </br>    
+    <label for="c15">Campo 15:</label> <div class="resultados1" id="res15"></div>
+    <input type="varchar" name="txcoluna15print" class="filtros"placeholder="Campo na Tela" id="txcoluna15print">  </br>    
+    <label for="c16">Campo 16:</label> <div class="resultados1" id="res16"></div>
+    <input type="varchar" name="txcoluna16print" class="filtros"placeholder="Campo na Tela" id="txcoluna16print">  </br>    
+    <label for="c17">Campo 17:</label> <div class="resultados1" id="res17"></div>
+    <input type="varchar" name="txcoluna17print" class="filtros"placeholder="Campo na Tela" id="txcoluna17print">  </br>    
+    <label for="c18">Campo 18:</label> <div class="resultados1" id="res18"></div>
+    <input type="varchar" name="txcoluna18print" class="filtros"placeholder="Campo na Tela" id="txcoluna18print">  </br>    
+    <label for="c19">Campo 19:</label> <div class="resultados1" id="res19"></div>
+    <input type="varchar" name="txcoluna19print" class="filtros"placeholder="Campo na Tela" id="txcoluna19print">  </br>
+    <label for="c20">Campo 20:</label> <div class="resultados1" id="res20"></div>
+    <input type="varchar" name="txcoluna20print" class="filtros"placeholder="Campo na Tela" id="txcoluna20print">  </br>
+    <label for="c21">Campo 21:</label> <div class="resultados1" id="res21"></div>
+    <input type="varchar" name="txcoluna21print" class="filtros"placeholder="Campo na Tela" id="txcoluna21print">  </br>
+    <label for="c22">Campo 22:</label> <div class="resultados1" id="res22"></div>
+    <input type="varchar" name="txcoluna22print" class="filtros"placeholder="Campo na Tela" id="txcoluna22print">  </br>
+    <label for="c23">Campo 23:</label> <div class="resultados1" id="res23"></div>
+    <input type="varchar" name="txcoluna23print" class="filtros"placeholder="Campo na Tela" id="txcoluna23print">  </br>
+    <label for="c24">Campo 24:</label> <div class="resultados1" id="res24"></div>
+    <input type="varchar" name="txcoluna24print" class="filtros"placeholder="Campo na Tela" id="txcoluna24print">  </br>
+    <label for="c25">Campo 25:</label> <div class="resultados1" id="res25"></div>
+    <input type="varchar" name="txcoluna25print" class="filtros"placeholder="Campo na Tela" id="txcoluna25print">  </br>
+    <label for="c26">Campo 26:</label> <div class="resultados1" id="res26"></div>
+    <input type="varchar" name="txcoluna26print" class="filtros"placeholder="Campo na Tela" id="txcoluna26print">  </br>
+    <label for="c27">Campo 27:</label> <div class="resultados1" id="res27"></div>
+    <input type="varchar" name="txcoluna27print" class="filtros"placeholder="Campo na Tela" id="txcoluna27print">  </br>
+    <label for="c28">Campo 28:</label> <div class="resultados1" id="res28"></div>
+    <input type="varchar" name="txcoluna28print" class="filtros"placeholder="Campo na Tela" id="txcoluna28print">  </br>
+    <label for="c29">Campo 29:</label> <div class="resultados1" id="res29"></div>
+    <input type="varchar" name="txcoluna29print" class="filtros"placeholder="Campo na Tela" id="txcoluna29print">  </br>
+    <label for="c30">Campo 30:</label> <div class="resultados1" id="res30"></div>
+    <input type="varchar" name="txcoluna30print" class="filtros"placeholder="Campo na Tela" id="txcoluna30print">  </br>
+    <label for="c31">Campo 31:</label> <div class="resultados1" id="res31"></div>
+    <input type="varchar" name="txcoluna31print" class="filtros"placeholder="Campo na Tela" id="txcoluna31print">  </br>
+    <label for="c32">Campo 32:</label> <div class="resultados1" id="res32"></div>
+    <input type="varchar" name="txcoluna32print" class="filtros"placeholder="Campo na Tela" id="txcoluna32print">  </br>
+    <label for="c33">Campo 33:</label> <div class="resultados1" id="res33"></div>
+    <input type="varchar" name="txcoluna33print" class="filtros"placeholder="Campo na Tela" id="txcoluna33print">  </br>
+    <label for="c34">Campo 34:</label> <div class="resultados1" id="res34"></div>
+    <input type="varchar" name="txcoluna34print" class="filtros"placeholder="Campo na Tela" id="txcoluna34print">  </br>
+    <label for="c35">Campo 35:</label> <div class="resultados1" id="res35"></div>
+    <input type="varchar" name="txcoluna35print" class="filtros"placeholder="Campo na Tela" id="txcoluna35print">  </br>
+    <label for="c36">Campo 36:</label> <div class="resultados1" id="res36"></div>
+    <input type="varchar" name="txcoluna36print" class="filtros"placeholder="Campo na Tela" id="txcoluna36print">  </br>
+    <label for="c37">Campo 37:</label> <div class="resultados1" id="res37"></div>
+    <input type="varchar" name="txcoluna37print" class="filtros"placeholder="Campo na Tela" id="txcoluna37print">  </br>
+    <label for="c38">Campo 38:</label> <div class="resultados1" id="res38"></div>
+    <input type="varchar" name="txcoluna38print" class="filtros"placeholder="Campo na Tela" id="txcoluna38print">  </br>
+    <label for="c39">Campo 39:</label> <div class="resultados1" id="res39"></div>
+    <input type="varchar" name="txcoluna39print" class="filtros"placeholder="Campo na Tela" id="txcoluna39print">  </br>
+    <label for="c40">Campo 40:</label> <div class="resultados1" id="res40"></div>
+    <input type="varchar" name="txcoluna40print" class="filtros"placeholder="Campo na Tela" id="txcoluna40print">  </br>
+
+
+
+        <h2>Order by</h2>
+     <input type="varchar" name="txorderby" class="filtros"placeholder="Order By" id="txorderby">        
+     <!--<input type="varchar" name="txorderbytipo" Style="color:red;background-color: rgb(235, 228, 212);"placeholder="Tipo Order By" id="txorderbytipo"> </br>  -->
+     <div class="seletor">
+        <select type="varchar" name="txorderbytipo" placeholder="Tipo Order By"  id="txorderbytipo">
+          <option value="ASC">ASC</option>
+          <option value="DESC">DESC</option>
+        </select>   
+      </div>   
+    </br>
+
+<div>
+    <h2>Insert Ou Update</h2>
+     
+     <fieldset>
+          <legend>Escolha Se Você irá Inserir o Relatório Pela Primeira Vez Ou Dar Um Update Em Um Já Existente</legend>
+          
+          <div>
+              <input type = "checkbox" id = "txinsert" name = "insert" valor = "txinsert">
+              <label for = "txinsert">Montar a Query de <strong>Insert</strong></label>
+          </div>
+          <div>
+              <input type = "checkbox" id = "txupdate" name = "update" valor = "txupdate">
+              <label for = "txupdate">Montar a Query de<strong> Update</strong></label>
+              <input type= "varchar" name="txwhere" class="filtros"placeholder="CustomID do Relatório no BD" id="txwhere"> 
+          </div>
+    
+     <fieldset>
+    </div>        
+    
+ 
+    
+</br>
+
+    <input type="button" class="botao" value="Montar" onclick="montar()">
+    <h3>Validações Básicas</h3>
+
+    
+    <div>
+        <div id="valida1">Nome do Relatorio</div>
+        <div id="valida2">Filtros</div>
+        <div id="valida3">Colunas</div>
+        <div id="valida4">Query</div>
+        <div id="valida5">OrderBy</div>
+        <div id="valida6">Carregamento</div>
+
+    </div>
+    
+    <h3>Query + XML Prontos para o Insert Ou Update</h3>
+    <div id="res"></div>
+    <div id="xml"></div>
+
+   
+         <script src="scripts.js"></script>
+
+
+   </body>
+</html> 
+
+
+
+
+
